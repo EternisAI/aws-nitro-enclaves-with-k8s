@@ -23,10 +23,9 @@ main() {
     pkill -f gvproxy || true
     gvproxy -listen vsock://:1024 -listen unix:///tmp/network.sock &
     sleep 2
-    curl   --unix-socket /tmp/network.sock   http:/unix/services/forwarder/expose   -X POST   -d '{"local":":7047","remote":"192.168.127.2:7047"}'
+    curl   --unix-socket /tmp/network.sock   http:/unix/services/forwarder/expose   -X POST   -d '{"local":":444","remote":"192.168.127.2:444"}'
     curl   --unix-socket /tmp/network.sock   http:/unix/services/forwarder/expose   -X POST   -d '{"local":":443","remote":"192.168.127.2:443"}'
-
-    # Add a while loop to check if the enclave is still running
+    
     while [[ $(nitro-cli describe-enclaves) != "[]" ]]; do
         echo "Enclave is still running. Waiting..."
         sleep 10

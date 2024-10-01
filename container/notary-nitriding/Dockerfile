@@ -28,7 +28,7 @@ RUN mv gvproxy-linux-amd64 gvproxy
 RUN chmod +x gvproxy
 RUN cp gvproxy /usr/bin
 
-COPY bin/notary-server-leader.eif /home/notary-server.eif
-COPY notary-leader/run.sh  /home
+COPY bin/notary-server-nitriding.eif /home/notary-server.eif
+COPY notary-nitriding/run.sh  /home
 
 CMD ["/home/run.sh"]

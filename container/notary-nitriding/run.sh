@@ -12,7 +12,7 @@ main() {
     cat /etc/nitro_enclaves/allocator.yaml
     nitro-cli describe-enclaves
     nitro-cli run-enclave --cpu-count $ENCLAVE_CPU_COUNT --memory $ENCLAVE_MEMORY_SIZE \
-        --eif-path $EIF_PATH --debug-mode
+        --eif-path $EIF_PATH
 
     local enclave_id=$(nitro-cli describe-enclaves | jq -r ".[0].EnclaveID")
     echo "-------------------------------"
